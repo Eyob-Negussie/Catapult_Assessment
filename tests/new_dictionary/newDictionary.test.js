@@ -53,8 +53,11 @@ describe("/New Dictionary", () => {
   });
 
   it("should return 200 and dictionary id when correct Autorization header is passed", async () => {
-    const respose = await http.post();
-    expect(respose.status).toBe(201);
-    expect(respose.data).toHaveProperty("id");
+    const { status, data } = await http.post();
+    expect(status).toBe(201);
+    expect(data).toHaveProperty("id");
+    expect(data.id).toMatch(
+      /[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}/
+    );
   });
 });

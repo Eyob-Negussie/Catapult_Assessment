@@ -3,18 +3,6 @@ const config = require("config");
 const http = require("../service/httpService");
 
 describe("/Delete Dictionary", () => {
-  beforeAll(() => {
-    if (!config.get("auth")) {
-      console.log(
-        'FATAL ERROR: auth is not defned. please set "catapult_health_authorization" to your environment variable'
-      );
-      throw new Error(
-        'FATAL ERROR: auth is not defned. please set "catapult_health_authorization" to your environment variable'
-      );
-      process.exit(1);
-    }
-  });
-
   it("should return 401 if Autorization header is not passed", async () => {
     delete axios.defaults.headers.common["Authorization"];
     try {

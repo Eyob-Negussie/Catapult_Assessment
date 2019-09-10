@@ -3,15 +3,6 @@ const config = require("config");
 const http = require("../service/httpService");
 
 describe("/New Dictionary", () => {
-  beforeAll(() => {
-    if (!config.get("auth")) {
-      throw new Error(
-        'FATAL ERROR: auth is not defned. please set "catapult_health_authorization" to your environment variable'
-      );
-      process.exit(1);
-    }
-  });
-
   afterEach(() => {
     axios.defaults.headers.common["Authorization"] = config.get("auth");
   });

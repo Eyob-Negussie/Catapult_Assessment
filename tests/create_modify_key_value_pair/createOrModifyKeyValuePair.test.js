@@ -3,18 +3,6 @@ const config = require("config");
 const http = require("../service/httpService");
 
 describe("/Create or Modify key-value Pairs", () => {
-  beforeAll(() => {
-    if (!config.get("auth")) {
-      console.log(
-        'FATAL ERROR: auth is not defned. please set "catapult_health_authorization" to your environment variable'
-      );
-      throw new Error(
-        'FATAL ERROR: auth is not defned. please set "catapult_health_authorization" to your environment variable'
-      );
-      process.exit(1);
-    }
-  });
-
   const id = "32820dae-6b06-488f-b977-abca97aa9f84";
   const key_value = { value: "test1" };
 
